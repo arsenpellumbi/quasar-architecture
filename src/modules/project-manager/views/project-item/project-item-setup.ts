@@ -59,7 +59,7 @@ export default function ProjectItemSetup(context: SetupContext) {
 
   const tablePagination = computed(() => {
     return {
-      rowsPerPage: currentPagination.value.pageSize
+      rowsNumber: currentPagination.value.pageSize
     };
   });
 
