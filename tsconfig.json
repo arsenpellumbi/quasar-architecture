@@ -15,7 +15,11 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["quasar"],
+    "types": [
+      "webpack",
+      "webpack-env",
+      "quasar"
+    ],
     "paths": {
       "src/*": ["src/*"],
       "app/*": ["*"],

@@ -1,4 +1,4 @@
-import toastHelper, { ToastHelper } from '../core/helpers/ToastHelper';
+import toastHelper, { ToastHelper } from '../core/helpers/toast-helper';
 import { boot } from 'quasar/wrappers';
 
 declare module 'vue/types/vue' {

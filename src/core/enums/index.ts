@@ -1,1 +1,1 @@
-export * from './RequestMethod.enums';
+export * from './request-method.enums';

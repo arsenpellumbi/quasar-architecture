@@ -7,7 +7,7 @@ interface Module {
 }
 
 class ModuleProvider {
-  private _modules = [require('./home'), require('./projectManager')];
+  private _modules = [require('./home'), require('./project-manager')];
 
   public getStoreModules(): ModuleTree<unknown> {
     let moduleStoreModules: ModuleTree<unknown> = {};
@@ -30,7 +30,7 @@ class ModuleProvider {
       {
         path: '/',
         redirect: '/projects',
-        component: () => import('layouts/MainLayout.vue'),
+        component: () => import('layouts/main-layout.vue'),
         children: moduleRoutes,
         meta: {
           requireAuthentication: false,

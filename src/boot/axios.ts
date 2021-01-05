@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { boot } from 'quasar/wrappers';
-import apiInterceptors from '../core/api/ApiInterceptors';
+import apiInterceptors from '../core/api/api-interceptors';
 
 declare module 'vue/types/vue' {
   interface Vue {

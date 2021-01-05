@@ -6,7 +6,7 @@ const routes: RouteConfig[] = [
   {
     path: '/404',
     name: '404',
-    component: () => import('pages/Error404.vue')
+    component: () => import('pages/error-404.vue')
   },
   {
     path: '*',
