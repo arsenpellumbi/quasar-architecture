@@ -89,7 +89,6 @@ const actions: ActionTree<TaskStoreState, AppStoreState> = {
   },
 
   reset(context: ActionContext<TaskStoreState, AppStoreState>): void {
-    context.commit('setProjectId', null);
     context.commit('setTasks', []);
   }
 };

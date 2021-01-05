@@ -20,4 +20,4 @@ import Vue from 'vue'
 import Quasar from 'quasar'
 
 
-Vue.use(Quasar, { config: {"notify":{"position":"bottom","progress":true,"actions":[{"label":"Dismiss","color":"white"}]}},lang: lang,iconSet: iconSet })
+Vue.use(Quasar, { config: {"notify":{"position":"bottom","progress":true,"actions":[{"icon":"mdi-close","color":"white","flat":true,"round":true}]}},lang: lang,iconSet: iconSet })
