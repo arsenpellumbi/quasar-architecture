@@ -2,7 +2,7 @@ import { route } from 'quasar/wrappers';
 import VueRouter, { Route, RouteConfig, Location, RawLocation } from 'vue-router';
 import { Store } from 'vuex';
 import routes from './routes';
-import { moduleProvider } from '../modules';
+import { useModuleProvider } from '../modules';
 import navigationGuard from './navigation-guards';
 import { AppStoreState } from 'src/store';
 
@@ -14,6 +14,7 @@ import { AppStoreState } from 'src/store';
 export default route<Store<AppStoreState>>(function({ store, Vue }) {
   Vue.use(VueRouter);
 
+  const moduleProvider = useModuleProvider();
   const moduleRoutes: RouteConfig[] = moduleProvider.getRoutes();
   const definedRoutes = [...moduleRoutes, ...routes];
   const router = new VueRouter({

@@ -8,7 +8,7 @@ import {
   SearchTasksInProjectPayload,
   UpdateTaskPayload
 } from '../../entities/task';
-import usePaginatedStorage, { PaginatedStorage } from 'src/store/base/paginated-store/storage';
+import { usePaginatedStorage, PaginatedStorage } from 'src/store/base/paginated-store/storage';
 import { computed, ComputedRef } from '@vue/composition-api';
 import { AppStoreState } from 'src/store';
 
@@ -23,23 +23,23 @@ export interface TaskStorage extends PaginatedStorage {
   reset(): void;
 }
 
-export const useTaskStore = function(store: Store<AppStoreState>): TaskStorage {
-  const paginatedStorage = usePaginatedStorage(store, 'taskStore');
+export function useTaskStorage(store: Store<AppStoreState>, namespace: string): TaskStorage {
+  const paginatedStorage = usePaginatedStorage(store, namespace);
   return {
     ...paginatedStorage,
-    currentTasks: computed(() => (store.getters as { [key: string]: Task[] })['taskStore/currentTasks']),
+    currentTasks: computed(() => (store.getters as { [key: string]: Task[] })[`${namespace}/currentTasks`]),
     fetchTasks: async (payload: GetTasksByProjectIdPayload): Promise<void> =>
-      (await store.dispatch('taskStore/fetchTasks', payload)) as Promise<void>,
+      (await store.dispatch(`${namespace}/fetchTasks`, payload)) as Promise<void>,
     searchTasks: async (payload: SearchTasksInProjectPayload): Promise<void> =>
-      (await store.dispatch('taskStore/searchTasks', payload)) as Promise<void>,
+      (await store.dispatch(`${namespace}/searchTasks`, payload)) as Promise<void>,
     createTask: async (payload: CreateTaskPayload): Promise<void> =>
-      (await store.dispatch('taskStore/createTask', payload)) as Promise<void>,
+      (await store.dispatch(`${namespace}/createTask`, payload)) as Promise<void>,
     updateTask: async (payload: UpdateTaskPayload): Promise<void> =>
-      (await store.dispatch('taskStore/updateTask', payload)) as Promise<void>,
+      (await store.dispatch(`${namespace}/updateTask`, payload)) as Promise<void>,
     deleteTask: async (payload: DeleteTaskPayload): Promise<void> =>
-      (await store.dispatch('taskStore/deleteTask', payload)) as Promise<void>,
+      (await store.dispatch(`${namespace}/deleteTask`, payload)) as Promise<void>,
     getTaskById: async (payload: GetTaskByIdPayload): Promise<Task> =>
-      (await store.dispatch('taskStore/getTaskById', payload)) as Promise<Task>,
-    reset: async (): Promise<void> => (await store.dispatch('taskStore/reset')) as Promise<void>
+      (await store.dispatch(`${namespace}/getTaskById`, payload)) as Promise<Task>,
+    reset: async (): Promise<void> => (await store.dispatch(`${namespace}/reset`)) as Promise<void>
   };
-};
+}

@@ -1,8 +1,10 @@
 import { RouteConfig } from 'vue-router';
+import Configurations from 'src/core/configurations';
 
 const routes: RouteConfig[] = [
   // Always leave this as last one,
   // but you can also remove it
+  { path: '/', redirect: Configurations.initialRoutePath },
   {
     path: '/404',
     name: '404',

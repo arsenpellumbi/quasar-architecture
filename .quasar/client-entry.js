@@ -48,6 +48,8 @@ import qboot_Boottoast from 'boot/toast'
 
 import qboot_Bootcomponents from 'boot/components'
 
+import qboot_Bootlayouts from 'boot/layouts'
+
 
 
 
@@ -85,7 +87,7 @@ async function start () {
   }
 
   const urlPath = window.location.href.replace(window.location.origin, '')
-  const bootFiles = [qboot_Bootcompositionapi,qboot_Booti18n,qboot_Bootaxios,qboot_Boottoast,qboot_Bootcomponents]
+  const bootFiles = [qboot_Bootcompositionapi,qboot_Booti18n,qboot_Bootaxios,qboot_Boottoast,qboot_Bootcomponents,qboot_Bootlayouts]
 
   for (let i = 0; hasRedirected === false && i < bootFiles.length; i++) {
     if (typeof bootFiles[i] !== 'function') {

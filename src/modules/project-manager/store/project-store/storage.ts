@@ -8,7 +8,7 @@ import {
   SearchProjectsPayload,
   UpdateProjectPayload
 } from '../../entities/project';
-import usePaginatedStorage, { PaginatedStorage } from 'src/store/base/paginated-store/storage';
+import { usePaginatedStorage, PaginatedStorage } from 'src/store/base/paginated-store/storage';
 import { computed, ComputedRef } from '@vue/composition-api';
 import { AppStoreState } from 'src/store';
 
@@ -23,23 +23,23 @@ export interface ProjectStorage extends PaginatedStorage {
   reset(): void;
 }
 
-export const useProjectStore = function(store: Store<AppStoreState>): ProjectStorage {
-  const paginatedStorage = usePaginatedStorage(store, 'projectStore');
+export function useProjectStorage(store: Store<AppStoreState>, namespace: string): ProjectStorage {
+  const paginatedStorage = usePaginatedStorage(store, namespace);
   return {
     ...paginatedStorage,
-    currentProjects: computed(() => (store.getters as { [key: string]: Project[] })['projectStore/currentProjects']),
+    currentProjects: computed(() => (store.getters as { [key: string]: Project[] })[`${namespace}/currentProjects`]),
     fetchProjects: async (payload: GetProjectsPayload): Promise<void> =>
-      (await store.dispatch('projectStore/fetchProjects', payload)) as Promise<void>,
+      (await store.dispatch(`${namespace}/fetchProjects`, payload)) as Promise<void>,
     searchProjects: async (payload: SearchProjectsPayload): Promise<void> =>
-      (await store.dispatch('projectStore/searchProjects', payload)) as Promise<void>,
+      (await store.dispatch(`${namespace}/searchProjects`, payload)) as Promise<void>,
     createProject: async (payload: CreateProjectPayload): Promise<void> =>
-      (await store.dispatch('projectStore/createProject', payload)) as Promise<void>,
+      (await store.dispatch(`${namespace}/createProject`, payload)) as Promise<void>,
     updateProject: async (payload: UpdateProjectPayload): Promise<void> =>
-      (await store.dispatch('projectStore/updateProject', payload)) as Promise<void>,
+      (await store.dispatch(`${namespace}/updateProject`, payload)) as Promise<void>,
     deleteProject: async (payload: DeleteProjectPayload): Promise<void> =>
-      (await store.dispatch('projectStore/deleteProject', payload)) as Promise<void>,
+      (await store.dispatch(`${namespace}/deleteProject`, payload)) as Promise<void>,
     getProjectById: async (payload: GetProjectByIdPayload): Promise<Project> =>
-      (await store.dispatch('projectStore/getProjectById', payload)) as Promise<Project>,
-    reset: async (): Promise<void> => (await store.dispatch('projectStore/reset')) as Promise<void>
+      (await store.dispatch(`${namespace}/getProjectById`, payload)) as Promise<Project>,
+    reset: async (): Promise<void> => (await store.dispatch(`${namespace}/reset`)) as Promise<void>
   };
-};
+}

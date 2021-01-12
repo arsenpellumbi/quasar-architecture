@@ -56,7 +56,7 @@
 <script lang="ts">
 import { defineComponent, PropType, toRef, Ref, SetupContext } from '@vue/composition-api';
 import { EditableProject } from '../entities/project';
-import { useProjectStore } from '../store';
+import { useProjectStore } from '../store/project-store';
 
 function useProjectForm(project: Ref<EditableProject>, context: SetupContext) {
   const projectStore = useProjectStore(context.root.$store);

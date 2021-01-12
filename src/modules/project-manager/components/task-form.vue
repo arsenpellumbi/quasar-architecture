@@ -60,7 +60,7 @@
 import { defineComponent, PropType, toRef, Ref, SetupContext } from '@vue/composition-api';
 import { EditableTask } from '../entities/task';
 import { TaskType } from '../enums';
-import { useTaskStore } from '../store';
+import { useTaskStore } from '../store/task-store';
 
 function useTaskForm(task: Ref<EditableTask>, projectId: Ref<Guid>, context: SetupContext) {
   const taskStore = useTaskStore(context.root.$store);

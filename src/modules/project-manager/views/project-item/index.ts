@@ -8,7 +8,7 @@ const meta: RouteMeta = {
 };
 
 const projectItemRoute: RouteConfig = {
-  path: ':projectId',
+  path: 'projects/:projectId',
   name: 'ProjectItem',
   component: () => import('./project-item.vue'),
   meta: meta

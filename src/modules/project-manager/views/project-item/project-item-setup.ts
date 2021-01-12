@@ -3,7 +3,8 @@ import { Task } from '../../entities/task';
 import { date } from 'quasar';
 import { TaskType } from '../../enums';
 import { Project } from '../../entities/project';
-import { useProjectStore, useTaskStore } from '../../store';
+import { useProjectStore } from '../../store/project-store';
+import { useTaskStore } from '../../store/task-store';
 
 export default function ProjectItemSetup(context: SetupContext) {
   const taskStore = useTaskStore(context.root.$store);

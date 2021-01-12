@@ -1,7 +1,7 @@
 import { ref, Ref, computed, onMounted, SetupContext, watch, onBeforeMount } from '@vue/composition-api';
 import { Project } from '../../entities/project';
 import { date } from 'quasar';
-import { useProjectStore } from '../../store/project-store/storage';
+import { useProjectStore } from '../../store/project-store';
 
 export default function ProjectListSetup(context: SetupContext) {
   const projectStore = useProjectStore(context.root.$store);

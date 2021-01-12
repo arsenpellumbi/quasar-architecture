@@ -1,5 +1,4 @@
 import Layout from './index.vue';
-import storeModules from './store';
 import projectListRoute from './views/project-list';
 import projectItemRoute from './views/project-item';
 import { RouteConfig } from 'vue-router/types';
@@ -12,13 +11,13 @@ const meta: RouteMeta = {
 };
 
 const projectManagerRoute: RouteConfig = {
-  path: '/projects',
+  path: '/project-manager',
+  redirect: '/project-manager/projects',
   component: Layout,
   children: [projectListRoute, projectItemRoute],
   meta: meta
 };
 
 export default {
-  storeModules: storeModules,
   routeConfig: projectManagerRoute
 };

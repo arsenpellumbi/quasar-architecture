@@ -43,7 +43,7 @@
     </q-drawer>
 
     <q-page-container class="GPL__page-container">
-      <router-view />
+      <slot name="default"></slot>
 
       <q-page-sticky v-if="$q.screen.gt.sm" expand position="left">
         <div class="fit q-pt-xl q-px-sm column">
@@ -52,7 +52,7 @@
             <div class="GPL__side-btn__label">Home</div>
           </q-btn>
 
-          <q-btn round flat color="grey-8" stack no-caps size="26px" class="GPL__side-btn" to="/projects">
+          <q-btn round flat color="grey-8" stack no-caps size="26px" class="GPL__side-btn" to="/project-manager">
             <q-icon size="22px" name="mdi-folder-table" />
             <div class="GPL__side-btn__label">Projects</div>
           </q-btn>
@@ -72,7 +72,7 @@ export default {
       storage: 0.26,
       links1: [
         { icon: 'mdi-home', text: 'Home', path: '/home' },
-        { icon: 'mdi-folder-table', text: 'Projects', path: '/projects' }
+        { icon: 'mdi-folder-table', text: 'Projects', path: '/project-manager' }
       ]
     };
   }
