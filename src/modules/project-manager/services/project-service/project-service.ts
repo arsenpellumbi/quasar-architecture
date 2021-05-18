@@ -11,9 +11,15 @@ import {
   UpdateProjectPayload,
   DeleteProjectPayload
 } from '../../entities/project';
-import { ProjectService } from './project-service.types';
+import { IProjectService } from './project-service.types';
 
-export class ProjectServiceInstance extends ApiService implements ProjectService {
+class ProjectService extends ApiService implements IProjectService {
+  private static _instance: IProjectService;
+
+  constructor(endpoint: string) {
+    super(endpoint);
+  }
+
   public async getProjects(payload: GetProjectsPayload): Promise<PaginatedData<ProjectData>> {
     return await this.request({
       method: RequestMethod.Get,
@@ -33,8 +39,6 @@ export class ProjectServiceInstance extends ApiService implements ProjectService
 
   public async getProject(payload: GetProjectByIdPayload): Promise<ProjectData> {
     const id = payload.id ? payload.id.toString() : '';
-    // const project = await indexDbService.getObject<ProjectData>('Projects', id);
-    // return project;
 
     return await this.request({
       method: RequestMethod.Get,
@@ -69,4 +73,20 @@ export class ProjectServiceInstance extends ApiService implements ProjectService
       loading: false
     }).then((response: AxiosResponse<void>) => response.data);
   }
+
+  public static initialize(endpoint: string) {
+    this._instance = new this(endpoint);
+  }
+
+  public static get Instance(): IProjectService {
+    return this._instance;
+  }
+}
+
+export function useProjectService(endpoint: string): IProjectService {
+  if (!ProjectService.Instance) {
+    ProjectService.initialize(endpoint);
+  }
+
+  return ProjectService.Instance;
 }

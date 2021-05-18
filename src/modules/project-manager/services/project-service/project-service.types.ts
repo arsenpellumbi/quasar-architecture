@@ -9,7 +9,7 @@ import {
   DeleteProjectPayload
 } from '../../entities/project';
 
-export interface ProjectService {
+export interface IProjectService {
   getProjects(payload: GetProjectsPayload): Promise<PaginatedData<ProjectData>>;
   searchProjects(payload: SearchProjectsPayload): Promise<PaginatedData<ProjectData>>;
   getProject(payload: GetProjectByIdPayload): Promise<ProjectData>;

@@ -1,6 +1,6 @@
-import { Project, ProjectData } from './project.types';
+import { ProjectData } from './project.types';
 
-export class ProjectInstance implements Project {
+export class Project {
   readonly id?: Guid;
   readonly date?: Date;
   readonly title: string;

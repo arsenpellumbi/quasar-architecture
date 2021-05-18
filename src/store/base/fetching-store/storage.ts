@@ -1,12 +1,16 @@
-import { computed, ComputedRef } from '@vue/composition-api';
 import { Store } from 'vuex';
+import { BaseStorage } from '../base-store/storage';
 
-export interface FetchingStorage {
-  readonly fetching: ComputedRef<boolean>;
+export interface IFetchingStorage {
+  readonly fetching: boolean;
 }
 
-export function useFetchingStorage<TStore>(store: Store<TStore>, namespace: string): FetchingStorage {
-  return {
-    fetching: computed(() => (store.getters as { [key: string]: boolean })[`${namespace}/fetching`])
-  };
+export class FetchingStorage<TStore> extends BaseStorage<TStore> implements IFetchingStorage {
+  get fetching(): boolean {
+    return (this._store.getters as { [key: string]: boolean })[`${this._namespace}/fetching`];
+  }
+
+  constructor(store: Store<TStore>, namespace: string) {
+    super(store, namespace);
+  }
 }

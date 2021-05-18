@@ -1,7 +1,7 @@
 import { TaskType } from '../../enums';
-import { Task, TaskData } from './task.types';
+import { TaskData } from './task.types';
 
-export class TaskInstance implements Task {
+export class Task {
   readonly id?: Guid;
   readonly date?: Date;
   readonly title: string;

@@ -9,7 +9,7 @@ import {
   DeleteTaskPayload
 } from '../../entities/task';
 
-export interface TaskService {
+export interface ITaskService {
   getTasks(payload: GetTasksByProjectIdPayload): Promise<PaginatedData<TaskData>>;
   searchTasks(payload: SearchTasksInProjectPayload): Promise<PaginatedData<TaskData>>;
   getTask(payload: GetTaskByIdPayload): Promise<TaskData>;

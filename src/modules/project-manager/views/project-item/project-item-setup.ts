@@ -55,8 +55,9 @@ export default function ProjectItemSetup(context: SetupContext) {
     { name: 'actions', align: 'center', label: 'Actions' }
   ];
 
-  const currentTasks = taskStore.currentTasks;
-  const currentPagination = taskStore.currentPagination;
+  const currentTasks = computed(() => taskStore.currentTasks);
+
+  const currentPagination = computed(() => taskStore.currentPagination);
 
   const tablePagination = computed(() => {
     return {
@@ -99,8 +100,8 @@ export default function ProjectItemSetup(context: SetupContext) {
     }
   }
 
-  onBeforeMount(() => {
-    taskStore.reset();
+  onBeforeMount(async () => {
+    await taskStore.reset();
   });
 
   onMounted(async () => {

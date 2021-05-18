@@ -12,20 +12,20 @@
     "serve": "quasar dev"
   },
   "dependencies": {
-    "@quasar/extras": "^1.9.11",
+    "@quasar/extras": "^1.10.4",
     "@vue/composition-api": "^0.6.4",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "connect-history-api-fallback": "^1.6.0",
     "core-js": "^3.6.5",
     "express": "^4.17.1",
     "guid-typescript": "^1.0.9",
-    "lodash": "^4.17.20",
-    "quasar": "^1.0.0",
+    "lodash": "^4.17.21",
+    "quasar": "^1.15.15",
     "serve-static": "^1.14.1",
     "vue-i18n": "^8.0.0"
   },
   "devDependencies": {
-    "@quasar/app": "^2.0.0",
+    "@quasar/app": "^2.2.6",
     "@types/lodash": "^4.14.167",
     "@types/node": "^10.17.15",
     "@types/webpack-env": "^1.16.0",

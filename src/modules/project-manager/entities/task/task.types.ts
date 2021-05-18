@@ -10,16 +10,6 @@ export interface TaskData {
   readonly type: TaskType;
 }
 
-export interface Task {
-  readonly id?: Guid;
-  readonly date?: Date;
-  readonly title: string;
-  readonly description: string;
-  readonly projectId: Guid;
-
-  readonly type: TaskType;
-}
-
 export interface EditableTask {
   id?: Guid;
   date?: Date;

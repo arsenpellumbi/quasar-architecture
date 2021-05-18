@@ -5,13 +5,6 @@ export interface ProjectData {
   readonly description: string;
 }
 
-export interface Project {
-  readonly id?: Guid;
-  readonly date?: Date;
-  readonly title: string;
-  readonly description: string;
-}
-
 export interface EditableProject {
   id?: Guid;
   date?: Date;

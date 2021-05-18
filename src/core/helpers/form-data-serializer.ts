@@ -11,7 +11,7 @@ class FormDataSerializer {
   isArray = (value: any): boolean => Array.isArray(value);
   isDate = (value: any): boolean => value instanceof Date;
   isBlob = (value: any): boolean =>
-    value && typeof value.size === 'number' && typeof value.type === 'string' && typeof value.slice === 'function';
+    !!value && typeof value.size === 'number' && typeof value.type === 'string' && typeof value.slice === 'function';
 
   isFile = (value: any): boolean =>
     this.isBlob(value) &&

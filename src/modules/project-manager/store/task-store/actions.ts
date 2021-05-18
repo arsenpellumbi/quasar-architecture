@@ -5,7 +5,6 @@ import {
   GetTaskByIdPayload,
   GetTasksByProjectIdPayload,
   Task,
-  TaskInstance,
   SearchTasksInProjectPayload,
   UpdateTaskPayload,
   TaskData
@@ -50,9 +49,9 @@ const actions: ActionTree<TaskStoreState, AppStoreState> = {
   async getTaskById(context: ActionContext<TaskStoreState, AppStoreState>, payload: GetTaskByIdPayload): Promise<Task> {
     const task = context.state.tasks.filter((task: TaskData) => task.id == payload.id)[0];
     if (task) {
-      return new TaskInstance(task);
+      return new Task(task);
     }
-    return new TaskInstance(await serviceProvider.taskService.getTask(payload));
+    return new Task(await serviceProvider.taskService.getTask(payload));
   },
 
   async createTask(context: ActionContext<TaskStoreState, AppStoreState>, payload: CreateTaskPayload): Promise<void> {

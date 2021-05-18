@@ -40,9 +40,9 @@ export default function ProjectListSetup(context: SetupContext) {
     { name: 'actions', align: 'center', label: 'Actions' }
   ];
 
-  const currentProjects = projectStore.currentProjects;
+  const currentProjects = computed(() => projectStore.currentProjects);
 
-  const currentPagination = projectStore.currentPagination;
+  const currentPagination = computed(() => projectStore.currentPagination);
 
   const tablePagination = computed(() => {
     return {

@@ -6,7 +6,6 @@ import {
   GetProjectsPayload,
   Project,
   ProjectData,
-  ProjectInstance,
   SearchProjectsPayload,
   UpdateProjectPayload
 } from '../../entities/project';
@@ -54,7 +53,7 @@ const actions: ActionTree<ProjectStoreState, AppStoreState> = {
     const project: ProjectData = context.state.projects.filter((project: ProjectData) => project.id == payload.id)[0];
 
     if (project) {
-      return new ProjectInstance(project);
+      return new Project(project);
     }
 
     return await serviceProvider.projectService.getProject(payload);

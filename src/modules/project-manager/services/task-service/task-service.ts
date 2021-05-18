@@ -11,9 +11,15 @@ import {
   UpdateTaskPayload,
   DeleteTaskPayload
 } from '../../entities/task';
-import { TaskService } from './task-service.types';
+import { ITaskService } from './task-service.types';
 
-export class TaskServiceInstance extends ApiService implements TaskService {
+export class TaskService extends ApiService implements ITaskService {
+  private static _instance: ITaskService;
+
+  constructor(endpoint: string) {
+    super(endpoint);
+  }
+
   public async getTasks(payload: GetTasksByProjectIdPayload): Promise<PaginatedData<TaskData>> {
     return await this.request({
       method: RequestMethod.Get,
@@ -66,4 +72,20 @@ export class TaskServiceInstance extends ApiService implements TaskService {
       loading: false
     }).then((response: AxiosResponse<void>) => response.data);
   }
+
+  public static initialize(endpoint: string) {
+    this._instance = new this(endpoint);
+  }
+
+  public static get Instance(): ITaskService {
+    return this._instance;
+  }
+}
+
+export function useTaskService(endpoint: string): ITaskService {
+  if (!TaskService.Instance) {
+    TaskService.initialize(endpoint);
+  }
+
+  return TaskService.Instance;
 }
