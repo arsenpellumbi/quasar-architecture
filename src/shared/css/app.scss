@@ -1,0 +1,46 @@
+// app global css in SCSS form// $
+@import './app.variables.scss';
+@import 'quasar/dist/quasar.sass';
+
+body {
+  color: #333333;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.fade-enter-active {
+  transition: all .1s ease;
+}
+.fade-leave-active {
+  transition: all .1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.fade-enter, .fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+
+
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.flip-enter-active {
+  transition: all .3s ease;
+}
+.flip-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.flip-enter, .flip-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+	transform-style: preserve-3d;
+  transform: rotateY(45deg);
+  opacity: 0
+}

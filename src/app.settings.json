@@ -1,0 +1,25 @@
+{
+  "title": "Project manager",
+  "initialRoutePath": "/home",
+  "i18n": {
+    "locale": "en-us",
+    "fallbackLocale": "en-us"
+  },
+  "endpoints": {
+    "projectManagerApi": {
+      "baseUrl": "http://localhost:5101/api/v1"
+    }
+  },
+  "identity": {
+    "authority": "http://localhost:9003",
+    "clientId": "ai_vuejs_code_client",
+    "clientSecret": "",
+    "automaticSilentRenew": true,
+    "responseType": "code",
+    "scope": "openid profile email",
+    "filterProtocolClaims": true,
+    "redirectUri": "http://localhost:8080/authentication/oidc-login-redirect",
+    "silentRedirectUri": "http://localhost:8080/authentication/oidc-login-silent-renew",
+    "postLogoutRedirectUri": "http://localhost:8080/authentication/oidc-logout-redirect"
+  }
+}
