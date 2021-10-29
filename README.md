@@ -2,7 +2,7 @@
 
 ## Project manager sample app
 
-Project manager Quasar UI project source: https://github.com/arsenpellumbi/quasar-modular-app-architecture
+Project manager Quasar UI project source: https://github.com/arsenpellumbi/quasar-architecture
 
 Project manager Vue 3 UI project source: https://github.com/arsenpellumbi/vue-3-clean-architecture
 
