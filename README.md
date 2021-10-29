@@ -10,7 +10,6 @@ Project manager API project source: https://github.com/arsenpellumbi/net-core-pr
 
 Vue spa server in .net-core project source: https://github.com/arsenpellumbi/net-core-vue-spa-server
 
-
 ## Install the dependencies
 ```bash
 npm install
