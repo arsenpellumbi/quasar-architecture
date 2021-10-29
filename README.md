@@ -4,7 +4,7 @@
 
 Project manager Quasar UI project source: https://github.com/arsenpellumbi/quasar-modular-app-architecture
 
-Project manager Vue 3 UI project source: https://github.com/arsenpellumbi/vue-cli-vue-3-modular-app-clean-architecture
+Project manager Vue 3 UI project source: https://github.com/arsenpellumbi/vue-3-clean-architecture
 
 Project manager API project source: https://github.com/arsenpellumbi/net-core-project-manager
 
