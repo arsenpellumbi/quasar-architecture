@@ -2,19 +2,13 @@
 
 ## Project manager sample app
 
-Project manager Quasar UI project source: https://github.com/pigeonCloset/quasar-modular-app-architecture
+Project manager Quasar UI project source: https://github.com/arsenpellumbi/quasar-modular-app-architecture
 
-Project manager Vue Cli UI project source: https://github.com/pigeonCloset/vue-cli-modular-app-architecture
+Project manager Vue 3 UI project source: https://github.com/arsenpellumbi/vue-cli-vue-3-modular-app-clean-architecture
 
-Project manager API project source: https://github.com/pigeonCloset/net-core-project-manager
+Project manager API project source: https://github.com/arsenpellumbi/net-core-project-manager
 
-Vue spa server in .net-core project source: https://github.com/pigeonCloset/net-core-vue-spa-server
-
-
-## Project manager demos
-Project manager Quasar UI demo: https://pigeon-project-manager-client.herokuapp.com/projects
-
-Project manager API demo: https://pigeon-project-manager-backend.herokuapp.com/swagger/index.html
+Vue spa server in .net-core project source: https://github.com/arsenpellumbi/net-core-vue-spa-server
 
 
 ## Install the dependencies
